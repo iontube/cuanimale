@@ -257,42 +257,42 @@ const RASE = {
     { slug: 'pixie-bob', nume: 'Pixie-bob' },
   ],
   rozatoare: [
-    { slug: 'hamster', nume: 'Hamster' },
-    { slug: 'iepure', nume: 'Iepure' },
-    { slug: 'cobai', nume: 'Cobai' },
-    { slug: 'chinchilla', nume: 'Chinchilla' },
-    { slug: 'degu', nume: 'Degu' },
-    { slug: 'gerbil', nume: 'Gerbil' },
-    { slug: 'soricei', nume: 'Șoricei' },
-    { slug: 'rat-de-companie', nume: 'Rat de companie' },
-    { slug: 'sugar-glider', nume: 'Sugar Glider' },
-    { slug: 'veverita', nume: 'Veveriță' },
+    { slug: 'hamster', nume: 'Hamster', gen: 'm', singular: 'hamster' },
+    { slug: 'iepure', nume: 'Iepure', gen: 'm', singular: 'iepure' },
+    { slug: 'cobai', nume: 'Cobai', gen: 'm', singular: 'cobai' },
+    { slug: 'chinchilla', nume: 'Chinchilla', gen: 'f', singular: 'chinchilla' },
+    { slug: 'degu', nume: 'Degu', gen: 'm', singular: 'degu' },
+    { slug: 'gerbil', nume: 'Gerbil', gen: 'm', singular: 'gerbil' },
+    { slug: 'soricei', nume: 'Șoricei', gen: 'm', singular: 'șoricel' },
+    { slug: 'rat-de-companie', nume: 'Rat de companie', gen: 'm', singular: 'rat de companie' },
+    { slug: 'sugar-glider', nume: 'Sugar Glider', gen: 'm', singular: 'sugar glider' },
+    { slug: 'veverita', nume: 'Veveriță', gen: 'f', singular: 'veveriță' },
   ],
   pasari: [
-    { slug: 'papagal', nume: 'Papagal' },
-    { slug: 'perus', nume: 'Peruș' },
-    { slug: 'nimfa', nume: 'Nimfă' },
-    { slug: 'canar', nume: 'Canar' },
-    { slug: 'agapornis', nume: 'Agapornis' },
-    { slug: 'cacadu', nume: 'Cacadu' },
-    { slug: 'ara', nume: 'Ara' },
-    { slug: 'porumbel', nume: 'Porumbel' },
-    { slug: 'prepelita', nume: 'Prepeliță' },
-    { slug: 'gaina', nume: 'Găină' },
-    { slug: 'rata', nume: 'Rață' },
-    { slug: 'curcan', nume: 'Curcan' },
+    { slug: 'papagal', nume: 'Papagal', gen: 'm', singular: 'papagal' },
+    { slug: 'perus', nume: 'Peruș', gen: 'm', singular: 'peruș' },
+    { slug: 'nimfa', nume: 'Nimfă', gen: 'f', singular: 'nimfă' },
+    { slug: 'canar', nume: 'Canar', gen: 'm', singular: 'canar' },
+    { slug: 'agapornis', nume: 'Agapornis', gen: 'm', singular: 'agapornis' },
+    { slug: 'cacadu', nume: 'Cacadu', gen: 'm', singular: 'cacadu' },
+    { slug: 'ara', nume: 'Ara', gen: 'm', singular: 'ara' },
+    { slug: 'porumbel', nume: 'Porumbel', gen: 'm', singular: 'porumbel' },
+    { slug: 'prepelita', nume: 'Prepeliță', gen: 'f', singular: 'prepeliță' },
+    { slug: 'gaina', nume: 'Găină', gen: 'f', singular: 'găină' },
+    { slug: 'rata', nume: 'Rață', gen: 'f', singular: 'rață' },
+    { slug: 'curcan', nume: 'Curcan', gen: 'm', singular: 'curcan' },
   ],
   exotice: [
-    { slug: 'broasca-testoasa', nume: 'Broască țestoasă' },
-    { slug: 'iguana', nume: 'Iguană' },
-    { slug: 'sarpe', nume: 'Șarpe' },
-    { slug: 'cameleon', nume: 'Cameleon' },
-    { slug: 'gecko', nume: 'Gecko' },
-    { slug: 'axolotl', nume: 'Axolotl' },
-    { slug: 'pesti-acvariu', nume: 'Pești de acvariu' },
-    { slug: 'tarantula', nume: 'Tarantulă' },
-    { slug: 'hermit-crab', nume: 'Hermit Crab' },
-    { slug: 'scorpion', nume: 'Scorpion' },
+    { slug: 'broasca-testoasa', nume: 'Broască țestoasă', gen: 'f', singular: 'broască țestoasă' },
+    { slug: 'iguana', nume: 'Iguană', gen: 'f', singular: 'iguană' },
+    { slug: 'sarpe', nume: 'Șarpe', gen: 'm', singular: 'șarpe' },
+    { slug: 'cameleon', nume: 'Cameleon', gen: 'm', singular: 'cameleon' },
+    { slug: 'gecko', nume: 'Gecko', gen: 'm', singular: 'gecko' },
+    { slug: 'axolotl', nume: 'Axolotl', gen: 'm', singular: 'axolotl' },
+    { slug: 'pesti-acvariu', nume: 'Pești de acvariu', gen: 'm', singular: 'pește de acvariu' },
+    { slug: 'tarantula', nume: 'Tarantulă', gen: 'f', singular: 'tarantulă' },
+    { slug: 'hermit-crab', nume: 'Hermit Crab', gen: 'm', singular: 'hermit crab' },
+    { slug: 'scorpion', nume: 'Scorpion', gen: 'm', singular: 'scorpion' },
   ],
 };
 
@@ -1094,7 +1094,9 @@ function generateIntrebari(animalSlug) {
       // For rozatoare/pasari/exotice: species-specific questions only
       if (needsSpecies && q.titlu.includes('{R}')) {
         for (const rasa of rase) {
-          const titlu = q.titlu.replace(/\{R\}/g, rasa.nume);
+          const articol = rasa.gen === 'f' ? 'o' : 'un';
+          const numeSingular = rasa.singular || rasa.nume.toLowerCase();
+          const titlu = q.titlu.replace(/\{R\}/g, `${articol} ${numeSingular}`);
           const slug = slugify(titlu);
           if (slugSet.has(slug)) continue;
           slugSet.add(slug);
