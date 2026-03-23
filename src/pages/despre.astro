@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Despre cuanimale.ro"
+    description="Despre echipa cuanimale.ro - cine suntem, misiunea noastră și de ce am creat acest site."
+    canonical="/despre/"
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[{ label: 'Despre' }]} />
+
+    <h1 class="text-3xl font-heading font-extrabold text-surface-900 mb-6">Despre cuanimale.ro</h1>
+
+    <div class="prose-custom">
+      <h2>Cine suntem</h2>
+      <p>cuanimale.ro este un proiect editorial independent dedicat proprietarilor de animale de companie din România. Suntem o echipă de pasionați de animale care credem că informația corectă despre îngrijirea animalelor ar trebui să fie accesibilă tuturor.</p>
+
+      <h2>Misiunea noastră</h2>
+      <p>Oferim răspunsuri clare, practice și verificate la cele mai frecvente întrebări despre câini, pisici, rozătoare, păsări și animale exotice. Fiecare articol este scris cu grijă pentru a oferi informații pe care le poți aplica imediat în îngrijirea animalului tău.</p>
+
+      <h2>Ce ne diferențiază</h2>
+      <p>Nu suntem un forum și nu oferim sfaturi medicale personalizate. Articolele noastre acoperă comportament, hrană, sănătate, îngrijire și dresaj, organizate pe specii și rase pentru a găsi rapid ce te interesează. Pentru probleme medicale specifice, recomandăm întotdeauna consultul unui medic veterinar.</p>
+
+      <h2>Conținutul nostru</h2>
+      <p>Site-ul conține peste 16.000 de articole organizate pe 5 categorii principale de animale și 25 de subcategorii tematice. Fiecare articol răspunde la o întrebare specifică, cu informații adaptate speciei, rasei și vârstei animalului.</p>
+
+      <h2>Contact</h2>
+      <p>Pentru întrebări, sugestii sau colaborări, ne poți contacta la <strong>contact@cuanimale.ro</strong>.</p>
+    </div>
+  </div>
+</Layout>
