@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { animale, getSubcategoriiForAnimal, getIntrebariForSubcategorie } from '../../helpers/data';
+import { getOtherAnimals, getSubcategorieFAQLinks } from '../../helpers/interlinking';
+import { buildWebPageSchema, buildBreadcrumbSchema, buildItemListSchema } from '../../helpers/structured-data';
+
+export function getStaticPaths() {
+  return animale.map(a => ({
+    params: { animal: a.slug },
+    props: { animal: a },
+  }));
+}
+
+const { animal } = Astro.props;
+const subcategorii = getSubcategoriiForAnimal(animal.slug);
+const otherAnimals = getOtherAnimals(animal.slug);
+
+const breadcrumbItems = [
+  { label: animal.numePlural },
+];
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title={animal.metaTitle}
+    description={animal.metaDescription}
+    canonical={`/${animal.slug}/`}
+    jsonLd={[
+      buildWebPageSchema(animal.metaTitle, animal.metaDescription, `/${animal.slug}/`),
+      buildBreadcrumbSchema([{ label: 'Acasă', href: '/' }, ...breadcrumbItems]),
+      buildItemListSchema(subcategorii.map(s => ({ name: s.nume, url: `/${animal.slug}/${s.slug}/` }))),
+    ]}
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={breadcrumbItems} />
+
+    <!-- Header -->
+    <div class="mb-10">
+      <span class="text-5xl mb-4 block" aria-hidden="true">{animal.emoji}</span>
+      <h1 class="text-3xl sm:text-4xl font-heading font-extrabold text-surface-900 mb-3">
+        {animal.numePlural} - Comportament, Hrană, Sănătate și Îngrijire
+      </h1>
+      <p class="text-surface-500">{getIntrebariForSubcategorie(animal.slug, 'comportament').length + getIntrebariForSubcategorie(animal.slug, 'hrana').length + getIntrebariForSubcategorie(animal.slug, 'sanatate').length + getIntrebariForSubcategorie(animal.slug, 'ingrijire').length + getIntrebariForSubcategorie(animal.slug, 'dresaj').length} articole organizate în 5 subcategorii</p>
+    </div>
+
+    <!-- Pillar content -->
+    <div class="prose-custom mb-12">
+      {animal.continutPillar.map(p => <p>{p}</p>)}
+    </div>
+
+    <!-- Subcategorii -->
+    <section class="mb-12">
+      <h2 class="section-title mb-6">Ce subiecte acoperim despre {animal.numePlural.toLowerCase()}</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {subcategorii.map(s => {
+          const count = getIntrebariForSubcategorie(animal.slug, s.slug).length;
+          return (
+            <a href={`/${animal.slug}/${s.slug}/`} class="card p-5 no-underline group" title={s.metaTitle}>
+              <h3 class="font-heading font-semibold text-surface-900 group-hover:text-brand-600 transition-colors mb-1">
+                {s.nume}
+              </h3>
+              <p class="text-sm text-surface-600 mb-2">{s.descriere}</p>
+              <span class="text-xs text-surface-500">{count} articole</span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Top articole per subcategorie -->
+    {subcategorii.map(s => {
+      const topLinks = getSubcategorieFAQLinks(animal.slug, s.slug, 5);
+      return topLinks.length > 0 && (
+        <section class="mb-10">
+          <h2 class="text-xl font-heading font-bold text-surface-900 mb-4">{s.nume}</h2>
+          <div class="space-y-2">
+            {topLinks.map(link => (
+              <a href={link.href} class="card p-3 no-underline group flex items-center justify-between" title={link.title}>
+                <span class="text-sm font-medium text-surface-800 group-hover:text-brand-600 transition-colors">{link.text}</span>
+                <svg aria-hidden="true" class="w-4 h-4 text-surface-400 group-hover:text-brand-500 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
+          </div>
+          <a href={`/${animal.slug}/${s.slug}/`} class="text-link text-sm mt-3 inline-block">
+            Toate articolele despre {s.nume.toLowerCase()} →
+          </a>
+        </section>
+      );
+    })}
+
+    <!-- Alte animale -->
+    <section class="mt-12 pt-8 border-t border-surface-200">
+      <h2 class="text-lg font-heading font-semibold text-surface-900 mb-4">Alte categorii de animale</h2>
+      <div class="flex flex-wrap gap-3">
+        {otherAnimals.map(link => (
+          <a href={link.href} class="badge badge-brand no-underline hover:bg-brand-200 transition-colors" title={link.title}>
+            {link.text}
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

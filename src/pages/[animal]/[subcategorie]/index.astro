@@ -1,0 +1,110 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { animale, subcategorii, getIntrebariForSubcategorie, getAnimalBySlug } from '../../../helpers/data';
+import { getSiblingSubcategorii, getCrossAnimalLinks } from '../../../helpers/interlinking';
+import { buildWebPageSchema, buildBreadcrumbSchema } from '../../../helpers/structured-data';
+
+const PAGE_SIZE = 50;
+
+export function getStaticPaths() {
+  return subcategorii.map(s => ({
+    params: { animal: s.animalSlug, subcategorie: s.slug },
+    props: { subcategorie: s },
+  }));
+}
+
+const { subcategorie } = Astro.props;
+const animal = getAnimalBySlug(subcategorie.animalSlug)!;
+const intrebari = getIntrebariForSubcategorie(subcategorie.animalSlug, subcategorie.slug);
+const siblingSubcats = getSiblingSubcategorii(subcategorie.animalSlug, subcategorie.slug);
+const crossLinks = getCrossAnimalLinks(subcategorie.animalSlug, subcategorie.slug);
+
+const totalPages = Math.ceil(intrebari.length / PAGE_SIZE);
+const pageIntrebari = intrebari.slice(0, PAGE_SIZE);
+const baseUrl = `/${subcategorie.animalSlug}/${subcategorie.slug}`;
+const nextUrl = totalPages > 1 ? `${baseUrl}/p/2/` : null;
+
+const breadcrumbItems = [
+  { label: animal.numePlural, href: `/${animal.slug}/` },
+  { label: subcategorie.nume },
+];
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title={subcategorie.metaTitle}
+    description={subcategorie.metaDescription}
+    canonical={`${baseUrl}/`}
+    jsonLd={[
+      buildWebPageSchema(subcategorie.metaTitle, subcategorie.metaDescription, `${baseUrl}/`),
+      buildBreadcrumbSchema([{ label: 'Acasă', href: '/' }, ...breadcrumbItems]),
+    ]}
+  />
+  {nextUrl && <link slot="head" rel="next" href={`https://cuanimale.ro${nextUrl}`} />}
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={breadcrumbItems} />
+
+    <div class="mb-10">
+      <span class="text-sm text-brand-600 font-semibold uppercase tracking-wide">{animal.numePlural}</span>
+      <h1 class="text-3xl sm:text-4xl font-heading font-extrabold text-surface-900 mt-2 mb-3">
+        {subcategorie.nume} {animal.numePlural.toLowerCase()}
+      </h1>
+      <p class="text-surface-500">{intrebari.length} articole cu răspunsuri practice</p>
+    </div>
+
+    <div class="prose-custom mb-10">
+      {subcategorie.continut.map(p => <p>{p}</p>)}
+    </div>
+
+    <section class="mb-10">
+      <h2 class="section-title mb-6">Toate întrebările despre {subcategorie.nume.toLowerCase()}</h2>
+      <div class="space-y-2">
+        {pageIntrebari.map(q => (
+          <a href={`/${q.animalSlug}/${q.subcategorieSlug}/${q.slug}/`} class="card p-4 no-underline group flex items-center justify-between">
+            <span class="font-medium text-surface-800 group-hover:text-brand-600 transition-colors text-sm">{q.titlu}</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-surface-400 group-hover:text-brand-500 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    {totalPages > 1 && (
+      <nav class="flex items-center justify-center gap-2 mb-12" aria-label="Paginare">
+        <span class="w-9 h-9 flex items-center justify-center rounded-button text-sm font-medium bg-brand-600 text-white">1</span>
+        {Array.from({ length: Math.min(totalPages - 1, 6) }, (_, i) => (
+          <a href={`${baseUrl}/p/${i + 2}/`} class="w-9 h-9 flex items-center justify-center rounded-button text-sm font-medium text-surface-600 hover:bg-surface-100 no-underline">{i + 2}</a>
+        ))}
+        {totalPages > 7 && <span class="text-surface-400 px-1">...</span>}
+        {nextUrl && <a href={nextUrl} class="btn-secondary text-sm no-underline px-4 py-2">Următoarea →</a>}
+      </nav>
+    )}
+
+    <section class="mb-10 pt-8 border-t border-surface-200">
+      <h2 class="text-lg font-heading font-semibold text-surface-900 mb-4">Alte subiecte despre {animal.numePlural.toLowerCase()}</h2>
+      <div class="flex flex-wrap gap-3">
+        {siblingSubcats.map(link => (
+          <a href={link.href} class="badge badge-brand no-underline hover:bg-brand-200 transition-colors">{link.text}</a>
+        ))}
+      </div>
+    </section>
+
+    {crossLinks.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-lg font-heading font-semibold text-surface-900 mb-4">{subcategorie.nume} la alte animale</h2>
+        <div class="flex flex-wrap gap-3">
+          {crossLinks.map(link => (
+            <a href={link.href} class="badge badge-brand no-underline hover:bg-brand-200 transition-colors">{link.text}</a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <a href={`/${animal.slug}/`} class="text-link text-sm">← Înapoi la {animal.numePlural}</a>
+  </div>
+</Layout>

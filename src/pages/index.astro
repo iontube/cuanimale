@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import AnimalCard from '../components/AnimalCard.astro';
+import { animale, subcategorii, getAllIntrebari, getIntrebariForSubcategorie } from '../helpers/data';
+import { buildWebSiteSchema, buildWebPageSchema, buildItemListSchema } from '../helpers/structured-data';
+import { getPopularIntrebari } from '../helpers/interlinking';
+
+const totalIntrebari = getAllIntrebari().length;
+const popularIntrebari = getPopularIntrebari(12);
+const pillarPages = animale.map(a => ({ name: a.numePlural, url: `/${a.slug}/` }));
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Cu Animale - Îngrijire, Hrană și Sănătate pentru Animale de Companie"
+    description="Informații practice despre câini, pisici, rozătoare, păsări și animale exotice: comportament, hrană, sănătate, îngrijire și dresaj."
+    canonical="/"
+    jsonLd={[
+      buildWebSiteSchema(),
+      buildWebPageSchema('Cu Animale', 'Informații practice despre îngrijirea animalelor de companie', '/'),
+      buildItemListSchema(pillarPages),
+    ]}
+  />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-surface-900 py-20 sm:py-28">
+    <div class="absolute inset-0 opacity-[0.15]">
+      <div class="absolute top-0 -left-40 w-96 h-96 bg-brand-400 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 -right-40 w-96 h-96 bg-accent-400 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight mb-6">
+          Îngrijire, hrană și sănătate pentru <span class="gradient-hero-text">animalele de companie</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-surface-200 leading-relaxed mb-8 max-w-2xl">
+          {totalIntrebari.toLocaleString('ro-RO')} răspunsuri practice la cele mai căutate întrebări despre câini, pisici, rozătoare, păsări și animale exotice.
+        </p>
+        <div class="flex flex-wrap gap-3 md:hidden">
+          <a href="/caini/" class="btn-primary text-base px-7 py-3.5 no-underline shadow-lg hover:shadow-xl">Câini</a>
+          <a href="/pisici/" class="inline-flex items-center justify-center gap-2 rounded-button font-semibold transition-all duration-200 bg-white/20 text-white border border-white/40 px-7 py-3.5 hover:bg-white/25 hover:border-white/50 no-underline backdrop-blur-sm">Pisici</a>
+          <a href="/rozatoare/" class="inline-flex items-center justify-center gap-2 rounded-button font-semibold transition-all duration-200 bg-white/20 text-white border border-white/40 px-7 py-3.5 hover:bg-white/25 hover:border-white/50 no-underline backdrop-blur-sm">Rozătoare</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro text -->
+  <section class="container-custom py-12">
+    <div class="prose-custom max-w-3xl">
+      <p>Când ai un animal de companie, întrebările nu se termină niciodată. De ce latră câinele noaptea? Ce mănâncă un hamster? Cum îngrijești o pisică Persană? Pe cuanimale.ro găsești răspunsuri directe, scrise de specialiști, la cele mai căutate întrebări despre animale de companie din România.</p>
+      <p>Fiecare articol răspunde la o singură întrebare, cu informații practice pe care le poți aplica imediat. Nu teorie generală, ci sfaturi concrete adaptate speciei, rasei și vârstei animalului tău. {totalIntrebari.toLocaleString('ro-RO')} articole organizate pe 5 categorii și 25 de subcategorii.</p>
+    </div>
+  </section>
+
+  <!-- Categorii de animale -->
+  <section class="bg-surface-100 py-16 sm:py-20">
+    <div class="container-custom">
+      <div class="mb-10">
+        <h2 class="section-title">Alege tipul de animal</h2>
+        <p class="section-subtitle">Fiecare categorie acoperă comportament, hrană, sănătate, îngrijire și dresaj</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {animale.map(a => <AnimalCard animal={a} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cele mai căutate întrebări -->
+  <section class="container-custom py-16 sm:py-20">
+    <div class="mb-10">
+      <h2 class="section-title">Cele mai căutate întrebări</h2>
+      <p class="section-subtitle">Răspunsuri rapide la ce caută cel mai des proprietarii de animale</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {popularIntrebari.map(link => (
+        <a href={link.href} class="card p-4 no-underline group flex items-center justify-between" title={link.title}>
+          <span class="font-medium text-surface-800 group-hover:text-brand-600 transition-colors text-sm">{link.text}</span>
+          <svg aria-hidden="true" class="w-4 h-4 text-surface-400 group-hover:text-brand-500 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Subiecte per animal - deep links -->
+  <section class="bg-surface-100 py-16 sm:py-20">
+    <div class="container-custom">
+      <div class="mb-10">
+        <h2 class="section-title">Explorează pe subiecte</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {animale.map(a => (
+          <div>
+            <h3 class="font-heading font-bold text-surface-900 mb-3">{a.numePlural}</h3>
+            <div class="space-y-1">
+              {['comportament', 'hrana', 'sanatate', 'ingrijire', 'dresaj'].map(sub => {
+                const count = getIntrebariForSubcategorie(a.slug, sub).length;
+                const numeSubcat = { comportament: 'Comportament', hrana: 'Hrană', sanatate: 'Sănătate', ingrijire: 'Îngrijire', dresaj: 'Dresaj' }[sub];
+                return (
+                  <a href={`/${a.slug}/${sub}/`} class="flex items-center justify-between text-sm no-underline text-surface-600 hover:text-brand-600 py-1">
+                    <span>{numeSubcat}</span>
+                    <span class="text-xs text-surface-500">{count}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

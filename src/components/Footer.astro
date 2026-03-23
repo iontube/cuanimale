@@ -1,0 +1,85 @@
+---
+import Logo from './Logo.astro';
+import { animale } from '../helpers/data';
+
+const currentYear = new Date().getFullYear();
+
+const categorii = [
+  { href: '/caini/', label: 'Câini' },
+  { href: '/pisici/', label: 'Pisici' },
+  { href: '/rozatoare/', label: 'Rozătoare' },
+  { href: '/pasari/', label: 'Păsări' },
+  { href: '/exotice/', label: 'Exotice' },
+];
+
+const subcatPopulare = [
+  { href: '/caini/comportament/', label: 'Comportament câini' },
+  { href: '/caini/hrana/', label: 'Hrană câini' },
+  { href: '/pisici/sanatate/', label: 'Sănătate pisici' },
+  { href: '/caini/dresaj/', label: 'Dresaj câini' },
+  { href: '/pisici/ingrijire/', label: 'Îngrijire pisici' },
+  { href: '/rozatoare/hrana/', label: 'Hrană rozătoare' },
+];
+---
+
+<footer class="bg-surface-900 border-t border-surface-800 mt-20">
+  <div class="container-custom py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <a href="/" class="no-underline mb-4 inline-block">
+          <Logo variant="dark" />
+        </a>
+        <p class="text-surface-300 text-sm leading-relaxed">
+          Informații practice despre îngrijirea, hrănirea și sănătatea animalelor de companie din România.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4">Categorii</h3>
+        <ul class="space-y-2">
+          {categorii.map(c => (
+            <li>
+              <a href={c.href} class="text-surface-300 hover:text-white text-sm transition-colors no-underline">
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4">Subiecte populare</h3>
+        <ul class="space-y-2">
+          {subcatPopulare.map(s => (
+            <li>
+              <a href={s.href} class="text-surface-300 hover:text-white text-sm transition-colors no-underline">
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4">Despre</h3>
+        <ul class="space-y-2">
+          <li><a href="/contact/" class="text-surface-300 hover:text-white text-sm transition-colors no-underline">Contact</a></li>
+          <li><a href="/politica-confidentialitate/" class="text-surface-300 hover:text-white text-sm transition-colors no-underline">Confidențialitate</a></li>
+          <li><a href="/politica-cookies/" class="text-surface-300 hover:text-white text-sm transition-colors no-underline">Cookies</a></li>
+          <li><a href="/termeni-si-conditii/" class="text-surface-300 hover:text-white text-sm transition-colors no-underline">Termeni</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-surface-800">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-surface-400 text-sm">
+          &copy; {currentYear} cuanimale.ro. Toate drepturile rezervate.
+        </p>
+      </div>
+      <p class="text-surface-400 text-xs text-center sm:text-left mt-2">
+        Informații orientative. Consultă un medic veterinar pentru sfaturi medicale specifice animalului tău.
+      </p>
+    </div>
+  </div>
+</footer>

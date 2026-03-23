@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Pagina nu a fost găsită"
+    description="Pagina pe care o cauți nu există sau a fost mutată."
+    noindex={true}
+  />
+
+  <div class="container-narrow py-20 text-center">
+    <p class="text-6xl mb-4">🐾</p>
+    <h1 class="text-3xl font-heading font-bold text-surface-900 mb-4">Pagina nu a fost găsită</h1>
+    <p class="text-surface-600 mb-8">Pagina pe care o cauți nu există sau a fost mutată.</p>
+    <a href="/" class="btn-primary no-underline">Înapoi la pagina principală</a>
+  </div>
+</Layout>

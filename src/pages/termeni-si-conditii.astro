@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Termeni și condiții"
+    description="Termenii și condițiile de utilizare ale site-ului cuanimale.ro."
+    canonical="/termeni-si-conditii/"
+    noindex={true}
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[{ label: 'Termeni și condiții' }]} />
+
+    <h1 class="text-3xl font-heading font-bold text-surface-900 mb-6">Termeni și condiții</h1>
+
+    <div class="prose-custom">
+      <h2>Utilizarea site-ului</h2>
+      <p>Prin accesarea cuanimale.ro, accepți acești termeni. Conținutul site-ului este oferit în scop informativ.</p>
+
+      <h2>Informații medicale</h2>
+      <p>Informațiile de pe acest site nu înlocuiesc consultul veterinar profesional. Pentru orice problemă de sănătate a animalului tău, consultă un medic veterinar.</p>
+
+      <h2>Proprietate intelectuală</h2>
+      <p>Conținutul site-ului (texte, structură, design) este proprietatea cuanimale.ro. Reproducerea fără acord este interzisă.</p>
+
+      <h2>Limitarea responsabilității</h2>
+      <p>cuanimale.ro nu poate fi ținut responsabil pentru decizii luate pe baza informațiilor de pe site. Consultă un specialist pentru sfaturi personalizate.</p>
+
+      <h2>Modificări</h2>
+      <p>Ne rezervăm dreptul de a modifica acești termeni. Modificările intră în vigoare la publicare.</p>
+    </div>
+  </div>
+</Layout>

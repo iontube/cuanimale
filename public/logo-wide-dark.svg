@@ -1,0 +1,21 @@
+<svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" y="10" fill="url(#bg)"/>
+  <circle cx="42" cy="42" r="10" fill="white" opacity="0.9"/>
+  <circle cx="78" cy="42" r="10" fill="white" opacity="0.9"/>
+  <circle cx="32" cy="68" r="8" fill="white" opacity="0.9"/>
+  <circle cx="88" cy="68" r="8" fill="white" opacity="0.9"/>
+  <ellipse cx="60" cy="90" rx="20" ry="16" fill="white" opacity="0.95"/>
+  <text x="140" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#ffffff">
+    <tspan fill="#5eead4">cu</tspan>animale<tspan fill="#5eead4">.ro</tspan>
+  </text>
+  <text x="140" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#a8a092">
+    Îngrijire, hrană și sănătate pentru animale de companie
+  </text>
+</svg>

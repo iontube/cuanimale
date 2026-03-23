@@ -1,0 +1,97 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import SEOHead from '../../../../components/SEOHead.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import { subcategorii, getIntrebariForSubcategorie, getAnimalBySlug } from '../../../../helpers/data';
+import { getSiblingSubcategorii } from '../../../../helpers/interlinking';
+import { buildWebPageSchema, buildBreadcrumbSchema } from '../../../../helpers/structured-data';
+
+export function getStaticPaths() {
+  const PAGE_SIZE = 50;
+  const paths = [];
+  for (const s of subcategorii) {
+    const intrebari = getIntrebariForSubcategorie(s.animalSlug, s.slug);
+    const totalPages = Math.ceil(intrebari.length / PAGE_SIZE);
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({
+        params: { animal: s.animalSlug, subcategorie: s.slug, page: String(page) },
+        props: {
+          subcategorie: s,
+          pageIntrebari: intrebari.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+          currentPage: page,
+          totalPages,
+          totalIntrebari: intrebari.length,
+        },
+      });
+    }
+  }
+  return paths;
+}
+
+const { subcategorie, pageIntrebari, currentPage, totalPages, totalIntrebari } = Astro.props;
+const animal = getAnimalBySlug(subcategorie.animalSlug)!;
+const siblingSubcats = getSiblingSubcategorii(subcategorie.animalSlug, subcategorie.slug);
+
+const baseUrl = `/${subcategorie.animalSlug}/${subcategorie.slug}`;
+const prevUrl = currentPage === 2 ? `${baseUrl}/` : `${baseUrl}/p/${currentPage - 1}/`;
+const nextUrl = currentPage < totalPages ? `${baseUrl}/p/${currentPage + 1}/` : null;
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title={`${subcategorie.nume} ${animal.numePlural.toLowerCase()} - Pagina ${currentPage}`}
+    description={`${subcategorie.nume} ${animal.numePlural.toLowerCase()} - pagina ${currentPage} din ${totalPages}.`}
+    canonical={`${baseUrl}/p/${currentPage}/`}
+  />
+  <Fragment slot="head">
+    <link rel="prev" href={`https://cuanimale.ro${prevUrl}`} />
+    {nextUrl && <link rel="next" href={`https://cuanimale.ro${nextUrl}`} />}
+  </Fragment>
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[
+      { label: animal.numePlural, href: `/${animal.slug}/` },
+      { label: subcategorie.nume, href: `${baseUrl}/` },
+      { label: `Pagina ${currentPage}` },
+    ]} />
+
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-3xl font-heading font-extrabold text-surface-900 mb-2">
+        {subcategorie.nume} {animal.numePlural.toLowerCase()}
+      </h1>
+      <p class="text-surface-500">Pagina {currentPage} din {totalPages} · {totalIntrebari} articole</p>
+    </div>
+
+    <section class="mb-10">
+      <div class="space-y-2">
+        {pageIntrebari.map(q => (
+          <a href={`/${q.animalSlug}/${q.subcategorieSlug}/${q.slug}/`} class="card p-4 no-underline group flex items-center justify-between">
+            <span class="font-medium text-surface-800 group-hover:text-brand-600 transition-colors text-sm">{q.titlu}</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-surface-400 group-hover:text-brand-500 shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <nav class="flex items-center justify-center gap-2 mb-12" aria-label="Paginare">
+      <a href={prevUrl} class="btn-secondary text-sm no-underline px-4 py-2">← Înapoi</a>
+      <span class="text-sm text-surface-500">{currentPage} / {totalPages}</span>
+      {nextUrl ? (
+        <a href={nextUrl} class="btn-secondary text-sm no-underline px-4 py-2">Următoarea →</a>
+      ) : (
+        <span class="btn-secondary text-sm px-4 py-2 opacity-40">Următoarea →</span>
+      )}
+    </nav>
+
+    <section class="pt-8 border-t border-surface-200">
+      <div class="flex flex-wrap gap-3">
+        {siblingSubcats.map(link => (
+          <a href={link.href} class="badge badge-brand no-underline hover:bg-brand-200 transition-colors">{link.text}</a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

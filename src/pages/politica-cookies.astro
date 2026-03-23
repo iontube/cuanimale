@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Politica de cookies"
+    description="Informații despre utilizarea cookie-urilor pe cuanimale.ro."
+    canonical="/politica-cookies/"
+    noindex={true}
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[{ label: 'Politica de cookies' }]} />
+
+    <h1 class="text-3xl font-heading font-bold text-surface-900 mb-6">Politica de cookies</h1>
+
+    <div class="prose-custom">
+      <h2>Ce sunt cookie-urile?</h2>
+      <p>Cookie-urile sunt fișiere text mici stocate în browserul tău atunci când vizitezi un site web. Sunt utilizate pentru a reține preferințe și a analiza traficul.</p>
+
+      <h2>Cookie-uri necesare</h2>
+      <p>Aceste cookie-uri sunt esențiale pentru funcționarea site-ului (ex: preferința de consimțământ). Nu pot fi dezactivate.</p>
+
+      <h2>Cookie-uri de analiză</h2>
+      <p>Folosim cookie-uri de analiză doar cu acordul tău explicit. Acestea ne ajută să înțelegem cum folosesc vizitatorii site-ul.</p>
+
+      <h2>Cookie-uri publicitare</h2>
+      <p>Rețelele de publicitate pot plasa cookie-uri pentru a afișa reclame relevante. Poți gestiona aceste cookie-uri din setările browserului.</p>
+
+      <h2>Gestionarea cookie-urilor</h2>
+      <p>Poți șterge sau bloca cookie-urile din setările browserului tău. Consultă documentația browserului pentru instrucțiuni specifice.</p>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import type { Animal } from '../helpers/types';
+import { getIntrebariCountForAnimal } from '../helpers/data';
+
+interface Props {
+  animal: Animal;
+}
+
+const { animal } = Astro.props;
+const totalArticole = getIntrebariCountForAnimal(animal.slug);
+---
+
+<a href={`/${animal.slug}/`} class="card p-6 no-underline group block" title={`${animal.numePlural} - îngrijire, hrană și sănătate`}>
+  <div class="flex items-start gap-4">
+    <span class="text-4xl" aria-hidden="true">{animal.emoji}</span>
+    <div class="flex-1 min-w-0">
+      <h3 class="font-heading font-bold text-lg text-surface-900 group-hover:text-brand-600 transition-colors mb-1">
+        {animal.numePlural}
+      </h3>
+      <p class="text-sm text-surface-600 line-clamp-2 mb-3">{animal.descriere}</p>
+      <div class="flex items-center gap-3 text-xs text-surface-500">
+        <span>{animal.subcategorii.length} subcategorii</span>
+        <span>&middot;</span>
+        <span>{totalArticole} articole</span>
+      </div>
+    </div>
+    <svg aria-hidden="true" class="w-5 h-5 text-surface-400 group-hover:text-brand-500 transition-colors shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </div>
+</a>

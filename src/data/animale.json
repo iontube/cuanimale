@@ -1,0 +1,117 @@
+[
+  {
+    "id": "caini",
+    "slug": "caini",
+    "nume": "Câine",
+    "numePlural": "Câini",
+    "emoji": "🐶",
+    "descriere": "Tot ce trebuie să știi despre câini: comportament, hrană, sănătate, îngrijire și dresaj.",
+    "subcategorii": [
+      "comportament",
+      "hrana",
+      "sanatate",
+      "ingrijire",
+      "dresaj"
+    ],
+    "metaTitle": "Câini - Comportament, Hrană, Sănătate și Dresaj",
+    "metaDescription": "Informații practice despre câini: de ce latră, ce mănâncă, boli frecvente, îngrijire zilnică și metode de dresaj.",
+    "continutPillar": [
+      "Câinele este cel mai popular animal de companie din România. Fie că ai un cățel de rasă sau unul adoptat, îngrijirea corectă face diferența între un animal fericit și unul cu probleme de comportament sau sănătate.",
+      "Câinii au nevoie de hrană echilibrată, mișcare zilnică, control veterinar regulat și socializare. Fiecare rasă vine cu particularități: un Labrador are alte nevoi decât un Chihuahua, iar un câine de talie mare se dezvoltă diferit față de unul mic.",
+      "Pe această pagină găsești articole practice despre comportamentul câinilor, alimentație corectă pe vârste și rase, probleme de sănătate frecvente, îngrijire zilnică și metode de dresaj testate.",
+      "Alege subcategoria care te interesează și citește răspunsuri directe la cele mai căutate întrebări despre câini."
+    ]
+  },
+  {
+    "id": "pisici",
+    "slug": "pisici",
+    "nume": "Pisică",
+    "numePlural": "Pisici",
+    "emoji": "🐱",
+    "descriere": "Îngrijirea pisicilor: comportament, alimentație, sănătate, toaletare și antrenament.",
+    "subcategorii": [
+      "comportament",
+      "hrana",
+      "sanatate",
+      "ingrijire",
+      "dresaj"
+    ],
+    "metaTitle": "Pisici - Comportament, Hrană, Sănătate și Îngrijire",
+    "metaDescription": "Informații despre pisici: de ce torc, ce mănâncă, boli frecvente, îngrijire și cum le antrenezi.",
+    "continutPillar": [
+      "Pisicile sunt animalele de companie preferate pentru apartamente. Independente dar afectuoase, au nevoie de atenție specifică pentru a trăi sănătos și echilibrat.",
+      "O pisică de interior are alte nevoi decât una cu acces la curte. Alimentația, jocul, controlul veterinar și igiena litierei sunt pilonii unei îngrijiri corecte.",
+      "Aici găsești articole structurate pe teme: de la comportament și semne de boală, la rețete de hrană și metode de antrenament.",
+      "Fiecare rasă are particularități. O Persană necesită periaj zilnic, o Siameză este foarte vocală, iar o British Shorthair este mai calmă. Alege subcategoria potrivită și citește mai departe."
+    ]
+  },
+  {
+    "id": "rozatoare",
+    "slug": "rozatoare",
+    "nume": "Rozătoare",
+    "numePlural": "Rozătoare",
+    "emoji": "🐹",
+    "descriere": "Hamsteri, iepuri, cobai și chinchilla: hrană, cușcă, sănătate și comportament.",
+    "subcategorii": [
+      "comportament",
+      "hrana",
+      "sanatate",
+      "ingrijire",
+      "dresaj"
+    ],
+    "metaTitle": "Rozătoare - Hamsteri, Iepuri, Cobai, Chinchilla",
+    "metaDescription": "Informații despre rozătoare: hamsteri, iepuri, cobai, chinchilla. Hrană, cușcă, sănătate și comportament.",
+    "continutPillar": [
+      "Rozătoarele sunt animale de companie accesibile și potrivite pentru familii cu copii. Hamsterii, iepurii, cobaiii și chinchillele au nevoi diferite, dar toate necesită spațiu adecvat, hrană specifică și atenție zilnică.",
+      "Un hamster trăiește 2-3 ani și are nevoie de o cușcă spațioasă cu roată. Un iepure poate trăi peste 8 ani și are nevoie de mișcare liberă zilnic. Cobaiii sunt animale sociale care preferă compania altor cobai.",
+      "Pe această pagină găsești informații practice despre toate tipurile de rozătoare populare în România, organizate pe subcategorii clare.",
+      "Alege specia care te interesează din articolele de mai jos și citește sfaturi concrete despre îngrijire, hrană și sănătate."
+    ]
+  },
+  {
+    "id": "pasari",
+    "slug": "pasari",
+    "nume": "Pasăre",
+    "numePlural": "Păsări",
+    "emoji": "🐦",
+    "descriere": "Papagali, canari, peruși și nimfe: hrană, colivie, sănătate și antrenament.",
+    "subcategorii": [
+      "comportament",
+      "hrana",
+      "sanatate",
+      "ingrijire",
+      "dresaj"
+    ],
+    "metaTitle": "Păsări de Companie - Papagali, Canari, Peruși",
+    "metaDescription": "Informații despre păsări de companie: papagali, canari, peruși, nimfe. Hrană, colivie, sănătate și dresaj.",
+    "continutPillar": [
+      "Păsările de companie aduc culoare și sunet în casă. Papagalii, canarii, perușii și nimfele sunt cele mai populare specii din România, fiecare cu nevoi distincte.",
+      "Un peruș poate trăi 10-15 ani cu îngrijire corectă. Papagalii mari precum Ara sau Cacadu depășesc 50 de ani. Canarii sunt apreciați pentru cânt, iar nimfele pentru personalitatea lor sociabilă.",
+      "Colivia potrivită, hrana variată, lumina naturală și interacțiunea zilnică sunt esențiale pentru sănătatea unei păsări de companie.",
+      "Navighează prin subcategoriile de mai jos pentru articole detaliate despre fiecare aspect al îngrijirii păsărilor."
+    ]
+  },
+  {
+    "id": "exotice",
+    "slug": "exotice",
+    "nume": "Exotic",
+    "numePlural": "Animale exotice",
+    "emoji": "🦎",
+    "descriere": "Broaște țestoase, iguane, șerpi, gecko și axolotl: terariu, hrană și îngrijire.",
+    "subcategorii": [
+      "comportament",
+      "hrana",
+      "sanatate",
+      "ingrijire",
+      "dresaj"
+    ],
+    "metaTitle": "Animale Exotice - Reptile, Amfibieni, Nevertebrate",
+    "metaDescription": "Informații despre animale exotice: broaște țestoase, iguane, șerpi, gecko, axolotl. Terariu, hrană și îngrijire.",
+    "continutPillar": [
+      "Animalele exotice necesită condiții precise de mediu: temperatură, umiditate și iluminare controlate. Broaștele țestoase, iguanele, geckoii și axolotlii au devenit populari în România în ultimii ani.",
+      "Spre deosebire de câini sau pisici, animalele exotice nu pot comunica disconfortul la fel de clar. Un terariu greșit configurat sau o dietă inadecvată pot cauza probleme grave în câteva săptămâni.",
+      "Pe această pagină găsești articole despre cele mai populare animale exotice de companie din România, cu informații practice despre habitat, hrană și sănătate.",
+      "Alege specia care te interesează și citește sfaturi specifice, verificate de experiența crescătorilor."
+    ]
+  }
+]

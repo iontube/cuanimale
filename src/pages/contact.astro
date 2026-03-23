@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Contact"
+    description="Contactează echipa cuanimale.ro pentru întrebări, sugestii sau colaborări."
+    canonical="/contact/"
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[{ label: 'Contact' }]} />
+
+    <h1 class="text-3xl font-heading font-bold text-surface-900 mb-6">Contact</h1>
+
+    <div class="prose-custom">
+      <p>Pentru întrebări, sugestii sau colaborări, ne poți contacta la adresa de email de mai jos.</p>
+      <p>Email: <strong>contact@cuanimale.ro</strong></p>
+      <p>Răspundem de obicei în 24-48 de ore lucrătoare.</p>
+      <p>Informațiile de pe acest site au caracter orientativ și nu înlocuiesc consultul veterinar.</p>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title="Politica de confidențialitate"
+    description="Politica de confidențialitate a site-ului cuanimale.ro."
+    canonical="/politica-confidentialitate/"
+    noindex={true}
+  />
+
+  <div class="container-narrow py-8">
+    <Breadcrumb items={[{ label: 'Politica de confidențialitate' }]} />
+
+    <h1 class="text-3xl font-heading font-bold text-surface-900 mb-6">Politica de confidențialitate</h1>
+
+    <div class="prose-custom">
+      <h2>Date colectate</h2>
+      <p>cuanimale.ro poate colecta date anonime de navigare prin intermediul cookie-urilor de analiză, doar cu consimțământul vizitatorului.</p>
+
+      <h2>Cookie-uri</h2>
+      <p>Folosim cookie-uri tehnice necesare funcționării site-ului și, opțional, cookie-uri de analiză pentru a înțelege modul de utilizare a site-ului.</p>
+
+      <h2>Servicii terțe</h2>
+      <p>Putem utiliza servicii de analiză web (ex: Google Analytics) care colectează date anonime despre vizitatori. Aceste servicii au propriile politici de confidențialitate.</p>
+
+      <h2>Publicitate</h2>
+      <p>Site-ul poate afișa reclame prin intermediul unor rețele de publicitate. Aceste rețele pot utiliza cookie-uri proprii conform politicilor lor.</p>
+
+      <h2>Drepturile tale</h2>
+      <p>Ai dreptul de a refuza cookie-urile opționale, de a solicita ștergerea datelor personale și de a ne contacta pentru orice întrebare legată de confidențialitate.</p>
+
+      <h2>Contact</h2>
+      <p>Pentru întrebări legate de confidențialitate: contact@cuanimale.ro</p>
+    </div>
+  </div>
+</Layout>

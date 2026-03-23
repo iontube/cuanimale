@@ -1,0 +1,17 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+
+const { variant = 'light' } = Astro.props;
+const src = variant === 'dark' ? '/logo-wide-dark.svg' : '/logo-wide.svg';
+---
+
+<img
+  src={src}
+  alt="cuanimale.ro - Animale de companie"
+  class="h-12 w-auto"
+  width="300"
+  height="60"
+  loading="eager"
+/>

@@ -1,0 +1,377 @@
+[
+  {
+    "id": "caini-comportament",
+    "slug": "comportament",
+    "nume": "Comportament",
+    "animalSlug": "caini",
+    "animalNume": "Câini",
+    "descriere": "De ce face câini anumite lucruri? Află semnificația comportamentelor frecvente.",
+    "continut": [
+      "Comportamentul câini transmite informații despre starea lor fizică și emoțională. Fiecare gest, sunet sau postură are o semnificație.",
+      "Înțelegerea comportamentului ajută la prevenirea problemelor și la construirea unei relații solide cu animalul tău.",
+      "Mai jos găsești răspunsuri la cele mai căutate întrebări despre comportamentul câini."
+    ],
+    "metaTitle": "Comportament Câini - Întrebări și Răspunsuri",
+    "metaDescription": "De ce face câini anumite lucruri? Află semnificația comportamentelor frecvente."
+  },
+  {
+    "id": "caini-hrana",
+    "slug": "hrana",
+    "nume": "Hrană",
+    "animalSlug": "caini",
+    "animalNume": "Câini",
+    "descriere": "Ce mănâncă și ce nu are voie să mănânce câini. Diete, cantități și alimente recomandate.",
+    "continut": [
+      "Alimentația corectă este baza sănătății câini. O dietă echilibrată previne bolile, menține greutatea optimă și asigură energie pentru activitățile zilnice.",
+      "Fiecare specie și rasă are cerințe nutriționale diferite. Vârsta, dimensiunea și nivelul de activitate influențează cantitatea și tipul de hrană necesară.",
+      "Citește articolele de mai jos pentru informații concrete despre alimentația câini."
+    ],
+    "metaTitle": "Hrană Câini - Întrebări și Răspunsuri",
+    "metaDescription": "Ce mănâncă și ce nu are voie să mănânce câini. Diete, cantități și alimente recomandate."
+  },
+  {
+    "id": "caini-sanatate",
+    "slug": "sanatate",
+    "nume": "Sănătate",
+    "animalSlug": "caini",
+    "animalNume": "Câini",
+    "descriere": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu câini.",
+    "continut": [
+      "Sănătatea câini depinde de prevenție: vaccinuri, deparazitare, control veterinar regulat și observarea schimbărilor de comportament.",
+      "Multe boli pot fi tratate eficient dacă sunt depistate devreme. Cunoașterea simptomelor te ajută să reacționezi la timp.",
+      "Mai jos găsești informații despre cele mai frecvente probleme de sănătate ale câini."
+    ],
+    "metaTitle": "Sănătate Câini - Întrebări și Răspunsuri",
+    "metaDescription": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu câini."
+  },
+  {
+    "id": "caini-ingrijire",
+    "slug": "ingrijire",
+    "nume": "Îngrijire",
+    "animalSlug": "caini",
+    "animalNume": "Câini",
+    "descriere": "Îngrijire zilnică pentru câini: igienă, toaletare, mediu și accesorii necesare.",
+    "continut": [
+      "Îngrijirea zilnică a câini include igiena, toaletarea, amenajarea spațiului de locuit și asigurarea condițiilor optime de confort.",
+      "Un animal bine îngrijit trăiește mai mult, este mai sănătos și dezvoltă o legătură mai puternică cu stăpânul.",
+      "Citește articolele de mai jos pentru sfaturi practice de îngrijire zilnică."
+    ],
+    "metaTitle": "Îngrijire Câini - Întrebări și Răspunsuri",
+    "metaDescription": "Îngrijire zilnică pentru câini: igienă, toaletare, mediu și accesorii necesare."
+  },
+  {
+    "id": "caini-dresaj",
+    "slug": "dresaj",
+    "nume": "Dresaj",
+    "animalSlug": "caini",
+    "animalNume": "Câini",
+    "descriere": "Cum antrenezi câini: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament.",
+    "continut": [
+      "Dresajul câini se bazează pe răbdare, consistență și recompense pozitive. Nu există scurtături - rezultatele vin cu repetiție zilnică.",
+      "Indiferent de vârstă, orice animal poate învăța comportamente noi dacă metoda este adaptată speciei și temperamentului.",
+      "Mai jos găsești metode practice de dresaj și antrenament pentru câini."
+    ],
+    "metaTitle": "Dresaj Câini - Întrebări și Răspunsuri",
+    "metaDescription": "Cum antrenezi câini: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament."
+  },
+  {
+    "id": "pisici-comportament",
+    "slug": "comportament",
+    "nume": "Comportament",
+    "animalSlug": "pisici",
+    "animalNume": "Pisici",
+    "descriere": "De ce face pisici anumite lucruri? Află semnificația comportamentelor frecvente.",
+    "continut": [
+      "Comportamentul pisici transmite informații despre starea lor fizică și emoțională. Fiecare gest, sunet sau postură are o semnificație.",
+      "Înțelegerea comportamentului ajută la prevenirea problemelor și la construirea unei relații solide cu animalul tău.",
+      "Mai jos găsești răspunsuri la cele mai căutate întrebări despre comportamentul pisici."
+    ],
+    "metaTitle": "Comportament Pisici - Întrebări și Răspunsuri",
+    "metaDescription": "De ce face pisici anumite lucruri? Află semnificația comportamentelor frecvente."
+  },
+  {
+    "id": "pisici-hrana",
+    "slug": "hrana",
+    "nume": "Hrană",
+    "animalSlug": "pisici",
+    "animalNume": "Pisici",
+    "descriere": "Ce mănâncă și ce nu are voie să mănânce pisici. Diete, cantități și alimente recomandate.",
+    "continut": [
+      "Alimentația corectă este baza sănătății pisici. O dietă echilibrată previne bolile, menține greutatea optimă și asigură energie pentru activitățile zilnice.",
+      "Fiecare specie și rasă are cerințe nutriționale diferite. Vârsta, dimensiunea și nivelul de activitate influențează cantitatea și tipul de hrană necesară.",
+      "Citește articolele de mai jos pentru informații concrete despre alimentația pisici."
+    ],
+    "metaTitle": "Hrană Pisici - Întrebări și Răspunsuri",
+    "metaDescription": "Ce mănâncă și ce nu are voie să mănânce pisici. Diete, cantități și alimente recomandate."
+  },
+  {
+    "id": "pisici-sanatate",
+    "slug": "sanatate",
+    "nume": "Sănătate",
+    "animalSlug": "pisici",
+    "animalNume": "Pisici",
+    "descriere": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu pisici.",
+    "continut": [
+      "Sănătatea pisici depinde de prevenție: vaccinuri, deparazitare, control veterinar regulat și observarea schimbărilor de comportament.",
+      "Multe boli pot fi tratate eficient dacă sunt depistate devreme. Cunoașterea simptomelor te ajută să reacționezi la timp.",
+      "Mai jos găsești informații despre cele mai frecvente probleme de sănătate ale pisici."
+    ],
+    "metaTitle": "Sănătate Pisici - Întrebări și Răspunsuri",
+    "metaDescription": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu pisici."
+  },
+  {
+    "id": "pisici-ingrijire",
+    "slug": "ingrijire",
+    "nume": "Îngrijire",
+    "animalSlug": "pisici",
+    "animalNume": "Pisici",
+    "descriere": "Îngrijire zilnică pentru pisici: igienă, toaletare, mediu și accesorii necesare.",
+    "continut": [
+      "Îngrijirea zilnică a pisici include igiena, toaletarea, amenajarea spațiului de locuit și asigurarea condițiilor optime de confort.",
+      "Un animal bine îngrijit trăiește mai mult, este mai sănătos și dezvoltă o legătură mai puternică cu stăpânul.",
+      "Citește articolele de mai jos pentru sfaturi practice de îngrijire zilnică."
+    ],
+    "metaTitle": "Îngrijire Pisici - Întrebări și Răspunsuri",
+    "metaDescription": "Îngrijire zilnică pentru pisici: igienă, toaletare, mediu și accesorii necesare."
+  },
+  {
+    "id": "pisici-dresaj",
+    "slug": "dresaj",
+    "nume": "Dresaj",
+    "animalSlug": "pisici",
+    "animalNume": "Pisici",
+    "descriere": "Cum antrenezi pisici: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament.",
+    "continut": [
+      "Dresajul pisici se bazează pe răbdare, consistență și recompense pozitive. Nu există scurtături - rezultatele vin cu repetiție zilnică.",
+      "Indiferent de vârstă, orice animal poate învăța comportamente noi dacă metoda este adaptată speciei și temperamentului.",
+      "Mai jos găsești metode practice de dresaj și antrenament pentru pisici."
+    ],
+    "metaTitle": "Dresaj Pisici - Întrebări și Răspunsuri",
+    "metaDescription": "Cum antrenezi pisici: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament."
+  },
+  {
+    "id": "rozatoare-comportament",
+    "slug": "comportament",
+    "nume": "Comportament",
+    "animalSlug": "rozatoare",
+    "animalNume": "Rozătoare",
+    "descriere": "De ce face rozătoare anumite lucruri? Află semnificația comportamentelor frecvente.",
+    "continut": [
+      "Comportamentul rozătoare transmite informații despre starea lor fizică și emoțională. Fiecare gest, sunet sau postură are o semnificație.",
+      "Înțelegerea comportamentului ajută la prevenirea problemelor și la construirea unei relații solide cu animalul tău.",
+      "Mai jos găsești răspunsuri la cele mai căutate întrebări despre comportamentul rozătoare."
+    ],
+    "metaTitle": "Comportament Rozătoare - Întrebări și Răspunsuri",
+    "metaDescription": "De ce face rozătoare anumite lucruri? Află semnificația comportamentelor frecvente."
+  },
+  {
+    "id": "rozatoare-hrana",
+    "slug": "hrana",
+    "nume": "Hrană",
+    "animalSlug": "rozatoare",
+    "animalNume": "Rozătoare",
+    "descriere": "Ce mănâncă și ce nu are voie să mănânce rozătoare. Diete, cantități și alimente recomandate.",
+    "continut": [
+      "Alimentația corectă este baza sănătății rozătoare. O dietă echilibrată previne bolile, menține greutatea optimă și asigură energie pentru activitățile zilnice.",
+      "Fiecare specie și rasă are cerințe nutriționale diferite. Vârsta, dimensiunea și nivelul de activitate influențează cantitatea și tipul de hrană necesară.",
+      "Citește articolele de mai jos pentru informații concrete despre alimentația rozătoare."
+    ],
+    "metaTitle": "Hrană Rozătoare - Întrebări și Răspunsuri",
+    "metaDescription": "Ce mănâncă și ce nu are voie să mănânce rozătoare. Diete, cantități și alimente recomandate."
+  },
+  {
+    "id": "rozatoare-sanatate",
+    "slug": "sanatate",
+    "nume": "Sănătate",
+    "animalSlug": "rozatoare",
+    "animalNume": "Rozătoare",
+    "descriere": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu rozătoare.",
+    "continut": [
+      "Sănătatea rozătoare depinde de prevenție: vaccinuri, deparazitare, control veterinar regulat și observarea schimbărilor de comportament.",
+      "Multe boli pot fi tratate eficient dacă sunt depistate devreme. Cunoașterea simptomelor te ajută să reacționezi la timp.",
+      "Mai jos găsești informații despre cele mai frecvente probleme de sănătate ale rozătoare."
+    ],
+    "metaTitle": "Sănătate Rozătoare - Întrebări și Răspunsuri",
+    "metaDescription": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu rozătoare."
+  },
+  {
+    "id": "rozatoare-ingrijire",
+    "slug": "ingrijire",
+    "nume": "Îngrijire",
+    "animalSlug": "rozatoare",
+    "animalNume": "Rozătoare",
+    "descriere": "Îngrijire zilnică pentru rozătoare: igienă, toaletare, mediu și accesorii necesare.",
+    "continut": [
+      "Îngrijirea zilnică a rozătoare include igiena, toaletarea, amenajarea spațiului de locuit și asigurarea condițiilor optime de confort.",
+      "Un animal bine îngrijit trăiește mai mult, este mai sănătos și dezvoltă o legătură mai puternică cu stăpânul.",
+      "Citește articolele de mai jos pentru sfaturi practice de îngrijire zilnică."
+    ],
+    "metaTitle": "Îngrijire Rozătoare - Întrebări și Răspunsuri",
+    "metaDescription": "Îngrijire zilnică pentru rozătoare: igienă, toaletare, mediu și accesorii necesare."
+  },
+  {
+    "id": "rozatoare-dresaj",
+    "slug": "dresaj",
+    "nume": "Dresaj",
+    "animalSlug": "rozatoare",
+    "animalNume": "Rozătoare",
+    "descriere": "Cum antrenezi rozătoare: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament.",
+    "continut": [
+      "Dresajul rozătoare se bazează pe răbdare, consistență și recompense pozitive. Nu există scurtături - rezultatele vin cu repetiție zilnică.",
+      "Indiferent de vârstă, orice animal poate învăța comportamente noi dacă metoda este adaptată speciei și temperamentului.",
+      "Mai jos găsești metode practice de dresaj și antrenament pentru rozătoare."
+    ],
+    "metaTitle": "Dresaj Rozătoare - Întrebări și Răspunsuri",
+    "metaDescription": "Cum antrenezi rozătoare: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament."
+  },
+  {
+    "id": "pasari-comportament",
+    "slug": "comportament",
+    "nume": "Comportament",
+    "animalSlug": "pasari",
+    "animalNume": "Păsări",
+    "descriere": "De ce face păsări anumite lucruri? Află semnificația comportamentelor frecvente.",
+    "continut": [
+      "Comportamentul păsări transmite informații despre starea lor fizică și emoțională. Fiecare gest, sunet sau postură are o semnificație.",
+      "Înțelegerea comportamentului ajută la prevenirea problemelor și la construirea unei relații solide cu animalul tău.",
+      "Mai jos găsești răspunsuri la cele mai căutate întrebări despre comportamentul păsări."
+    ],
+    "metaTitle": "Comportament Păsări - Întrebări și Răspunsuri",
+    "metaDescription": "De ce face păsări anumite lucruri? Află semnificația comportamentelor frecvente."
+  },
+  {
+    "id": "pasari-hrana",
+    "slug": "hrana",
+    "nume": "Hrană",
+    "animalSlug": "pasari",
+    "animalNume": "Păsări",
+    "descriere": "Ce mănâncă și ce nu are voie să mănânce păsări. Diete, cantități și alimente recomandate.",
+    "continut": [
+      "Alimentația corectă este baza sănătății păsări. O dietă echilibrată previne bolile, menține greutatea optimă și asigură energie pentru activitățile zilnice.",
+      "Fiecare specie și rasă are cerințe nutriționale diferite. Vârsta, dimensiunea și nivelul de activitate influențează cantitatea și tipul de hrană necesară.",
+      "Citește articolele de mai jos pentru informații concrete despre alimentația păsări."
+    ],
+    "metaTitle": "Hrană Păsări - Întrebări și Răspunsuri",
+    "metaDescription": "Ce mănâncă și ce nu are voie să mănânce păsări. Diete, cantități și alimente recomandate."
+  },
+  {
+    "id": "pasari-sanatate",
+    "slug": "sanatate",
+    "nume": "Sănătate",
+    "animalSlug": "pasari",
+    "animalNume": "Păsări",
+    "descriere": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu păsări.",
+    "continut": [
+      "Sănătatea păsări depinde de prevenție: vaccinuri, deparazitare, control veterinar regulat și observarea schimbărilor de comportament.",
+      "Multe boli pot fi tratate eficient dacă sunt depistate devreme. Cunoașterea simptomelor te ajută să reacționezi la timp.",
+      "Mai jos găsești informații despre cele mai frecvente probleme de sănătate ale păsări."
+    ],
+    "metaTitle": "Sănătate Păsări - Întrebări și Răspunsuri",
+    "metaDescription": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu păsări."
+  },
+  {
+    "id": "pasari-ingrijire",
+    "slug": "ingrijire",
+    "nume": "Îngrijire",
+    "animalSlug": "pasari",
+    "animalNume": "Păsări",
+    "descriere": "Îngrijire zilnică pentru păsări: igienă, toaletare, mediu și accesorii necesare.",
+    "continut": [
+      "Îngrijirea zilnică a păsări include igiena, toaletarea, amenajarea spațiului de locuit și asigurarea condițiilor optime de confort.",
+      "Un animal bine îngrijit trăiește mai mult, este mai sănătos și dezvoltă o legătură mai puternică cu stăpânul.",
+      "Citește articolele de mai jos pentru sfaturi practice de îngrijire zilnică."
+    ],
+    "metaTitle": "Îngrijire Păsări - Întrebări și Răspunsuri",
+    "metaDescription": "Îngrijire zilnică pentru păsări: igienă, toaletare, mediu și accesorii necesare."
+  },
+  {
+    "id": "pasari-dresaj",
+    "slug": "dresaj",
+    "nume": "Dresaj",
+    "animalSlug": "pasari",
+    "animalNume": "Păsări",
+    "descriere": "Cum antrenezi păsări: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament.",
+    "continut": [
+      "Dresajul păsări se bazează pe răbdare, consistență și recompense pozitive. Nu există scurtături - rezultatele vin cu repetiție zilnică.",
+      "Indiferent de vârstă, orice animal poate învăța comportamente noi dacă metoda este adaptată speciei și temperamentului.",
+      "Mai jos găsești metode practice de dresaj și antrenament pentru păsări."
+    ],
+    "metaTitle": "Dresaj Păsări - Întrebări și Răspunsuri",
+    "metaDescription": "Cum antrenezi păsări: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament."
+  },
+  {
+    "id": "exotice-comportament",
+    "slug": "comportament",
+    "nume": "Comportament",
+    "animalSlug": "exotice",
+    "animalNume": "Animale exotice",
+    "descriere": "De ce face animale exotice anumite lucruri? Află semnificația comportamentelor frecvente.",
+    "continut": [
+      "Comportamentul animale exotice transmite informații despre starea lor fizică și emoțională. Fiecare gest, sunet sau postură are o semnificație.",
+      "Înțelegerea comportamentului ajută la prevenirea problemelor și la construirea unei relații solide cu animalul tău.",
+      "Mai jos găsești răspunsuri la cele mai căutate întrebări despre comportamentul animale exotice."
+    ],
+    "metaTitle": "Comportament Animale exotice - Întrebări și Răspunsuri",
+    "metaDescription": "De ce face animale exotice anumite lucruri? Află semnificația comportamentelor frecvente."
+  },
+  {
+    "id": "exotice-hrana",
+    "slug": "hrana",
+    "nume": "Hrană",
+    "animalSlug": "exotice",
+    "animalNume": "Animale exotice",
+    "descriere": "Ce mănâncă și ce nu are voie să mănânce animale exotice. Diete, cantități și alimente recomandate.",
+    "continut": [
+      "Alimentația corectă este baza sănătății animale exotice. O dietă echilibrată previne bolile, menține greutatea optimă și asigură energie pentru activitățile zilnice.",
+      "Fiecare specie și rasă are cerințe nutriționale diferite. Vârsta, dimensiunea și nivelul de activitate influențează cantitatea și tipul de hrană necesară.",
+      "Citește articolele de mai jos pentru informații concrete despre alimentația animale exotice."
+    ],
+    "metaTitle": "Hrană Animale exotice - Întrebări și Răspunsuri",
+    "metaDescription": "Ce mănâncă și ce nu are voie să mănânce animale exotice. Diete, cantități și alimente recomandate."
+  },
+  {
+    "id": "exotice-sanatate",
+    "slug": "sanatate",
+    "nume": "Sănătate",
+    "animalSlug": "exotice",
+    "animalNume": "Animale exotice",
+    "descriere": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu animale exotice.",
+    "continut": [
+      "Sănătatea animale exotice depinde de prevenție: vaccinuri, deparazitare, control veterinar regulat și observarea schimbărilor de comportament.",
+      "Multe boli pot fi tratate eficient dacă sunt depistate devreme. Cunoașterea simptomelor te ajută să reacționezi la timp.",
+      "Mai jos găsești informații despre cele mai frecvente probleme de sănătate ale animale exotice."
+    ],
+    "metaTitle": "Sănătate Animale exotice - Întrebări și Răspunsuri",
+    "metaDescription": "Boli frecvente, simptome de alarmă și când mergi la veterinar cu animale exotice."
+  },
+  {
+    "id": "exotice-ingrijire",
+    "slug": "ingrijire",
+    "nume": "Îngrijire",
+    "animalSlug": "exotice",
+    "animalNume": "Animale exotice",
+    "descriere": "Îngrijire zilnică pentru animale exotice: igienă, toaletare, mediu și accesorii necesare.",
+    "continut": [
+      "Îngrijirea zilnică a animale exotice include igiena, toaletarea, amenajarea spațiului de locuit și asigurarea condițiilor optime de confort.",
+      "Un animal bine îngrijit trăiește mai mult, este mai sănătos și dezvoltă o legătură mai puternică cu stăpânul.",
+      "Citește articolele de mai jos pentru sfaturi practice de îngrijire zilnică."
+    ],
+    "metaTitle": "Îngrijire Animale exotice - Întrebări și Răspunsuri",
+    "metaDescription": "Îngrijire zilnică pentru animale exotice: igienă, toaletare, mediu și accesorii necesare."
+  },
+  {
+    "id": "exotice-dresaj",
+    "slug": "dresaj",
+    "nume": "Dresaj",
+    "animalSlug": "exotice",
+    "animalNume": "Animale exotice",
+    "descriere": "Cum antrenezi animale exotice: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament.",
+    "continut": [
+      "Dresajul animale exotice se bazează pe răbdare, consistență și recompense pozitive. Nu există scurtături - rezultatele vin cu repetiție zilnică.",
+      "Indiferent de vârstă, orice animal poate învăța comportamente noi dacă metoda este adaptată speciei și temperamentului.",
+      "Mai jos găsești metode practice de dresaj și antrenament pentru animale exotice."
+    ],
+    "metaTitle": "Dresaj Animale exotice - Întrebări și Răspunsuri",
+    "metaDescription": "Cum antrenezi animale exotice: comenzi de bază, obiceiuri și rezolvarea problemelor de comportament."
+  }
+]
