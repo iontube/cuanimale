@@ -41,6 +41,7 @@ export function buildArticleSchema(intrebare: Intrebare, url: string): string {
     description: intrebare.metaDescription,
     url: SITE_URL + url,
     inLanguage: 'ro',
+    dateModified: new Date().toISOString().split('T')[0],
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -68,6 +69,7 @@ export function buildWebPageSchema(title: string, description: string, url: stri
       url: SITE_URL,
     },
     inLanguage: 'ro',
+    dateModified: new Date().toISOString().split('T')[0],
   };
   return JSON.stringify(schema);
 }
