@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { animale } from '../../helpers/data';
+import { buildWebPageSchema, buildBreadcrumbSchema, buildItemListSchema } from '../../helpers/structured-data';
+import type { BreadcrumbItem } from '../../helpers/types';
+
+const articole = (await getCollection('articole')).sort((a, b) => {
+  const diff = b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+  return diff !== 0 ? diff : a.id.localeCompare(b.id);
+});
+
+const animalBySlug = Object.fromEntries(animale.map(a => [a.slug, a]));
+
+const breadcrumbItems: BreadcrumbItem[] = [
+  { label: 'Articole' },
+];
+
+const dateFormatter = new Intl.DateTimeFormat('ro-RO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const pageTitle = 'Articole despre animale de companie';
+const pageDescription = 'Sfaturi, povești și ghiduri practice despre câini, pisici, păsări, rozătoare și animale exotice. Scrise pentru iubitorii de animale.';
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    canonical="/articole/"
+    jsonLd={[
+      buildWebPageSchema(pageTitle, pageDescription, '/articole/'),
+      buildBreadcrumbSchema([{ label: 'Acasă', href: '/' }, ...breadcrumbItems]),
+      buildItemListSchema(articole.map(a => ({ name: a.data.title, url: `/articole/${a.id}/` }))),
+    ]}
+  />
+
+  <section class="bg-gradient-to-br from-brand-50 via-white to-accent-50 border-b border-surface-100">
+    <div class="container-custom py-10 sm:py-14">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-surface-900 leading-tight mt-3 mb-4">
+        Articole despre animalele de companie
+      </h1>
+      <p class="text-lg text-surface-600 leading-relaxed max-w-2xl">
+        {pageDescription}
+      </p>
+    </div>
+  </section>
+
+  <section class="container-custom py-10 sm:py-14">
+    {articole.length === 0 ? (
+      <p class="text-surface-600">Articole noi în curând.</p>
+    ) : (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {articole.map(art => {
+          const animal = animalBySlug[art.data.animal];
+          return (
+            <a
+              href={`/articole/${art.id}/`}
+              class="group block bg-white rounded-xl overflow-hidden border border-surface-200 hover:border-brand-300 hover:shadow-lg transition-all no-underline"
+            >
+              <div class="relative aspect-[1200/631] overflow-hidden bg-surface-100">
+                <img
+                  src={art.data.heroImage}
+                  alt={art.data.heroImageAlt}
+                  width="1200"
+                  height="631"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2 text-xs">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 font-semibold">
+                    {animal?.emoji} {animal?.numePlural}
+                  </span>
+                  <span class="text-surface-400 capitalize">{art.data.subcategorie}</span>
+                </div>
+                <h2 class="text-lg sm:text-xl font-heading font-bold text-surface-900 leading-snug mb-2 group-hover:text-brand-700 transition-colors">
+                  {art.data.title}
+                </h2>
+                <p class="text-sm text-surface-600 leading-relaxed line-clamp-3 mb-3">
+                  {art.data.excerpt}
+                </p>
+                <time
+                  datetime={art.data.publishedAt.toISOString()}
+                  class="text-xs text-surface-500"
+                >
+                  {dateFormatter.format(art.data.publishedAt)}
+                </time>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    )}
+  </section>
+</Layout>

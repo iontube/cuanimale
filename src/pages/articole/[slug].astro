@@ -1,0 +1,192 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getAnimalBySlug, getIntrebariForSubcategorie } from '../../helpers/data';
+import { buildNewsArticleSchema, buildBreadcrumbSchema } from '../../helpers/structured-data';
+import type { BreadcrumbItem } from '../../helpers/types';
+
+export async function getStaticPaths() {
+  const articole = await getCollection('articole');
+  return articole.map(art => ({
+    params: { slug: art.id },
+    props: { article: art },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const data = article.data;
+const animal = getAnimalBySlug(data.animal)!;
+const pageUrl = `/articole/${article.id}/`;
+
+// Related Q&A pages from same animal+subcategory for cross-linking
+const related = getIntrebariForSubcategorie(data.animal, data.subcategorie).slice(0, 6);
+
+const breadcrumbItems: BreadcrumbItem[] = [
+  { label: 'Articole', href: '/articole/' },
+  { label: data.title },
+];
+
+const newsSchema = buildNewsArticleSchema({
+  title: data.title,
+  description: data.metaDescription,
+  url: pageUrl,
+  imageUrl: data.heroImage,
+  imageAlt: data.heroImageAlt,
+  imageWidth: 1200,
+  imageHeight: 631,
+  publishedAt: data.publishedAt,
+  updatedAt: data.updatedAt,
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: 'Acasă', href: '/' },
+  ...breadcrumbItems,
+]);
+
+// Format dates for display
+const dateFormatter = new Intl.DateTimeFormat('ro-RO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const publishedDisplay = dateFormatter.format(data.publishedAt);
+const publishedIso = data.publishedAt.toISOString();
+const modifiedIso = (data.updatedAt || data.publishedAt).toISOString();
+---
+
+<Layout>
+  <SEOHead
+    slot="head"
+    title={data.title}
+    description={data.metaDescription}
+    canonical={pageUrl}
+    ogType="article"
+    ogImage={data.heroImage}
+    ogImageWidth={1200}
+    ogImageHeight={631}
+    publishedTime={publishedIso}
+    modifiedTime={modifiedIso}
+    jsonLd={[newsSchema, breadcrumbSchema]}
+  />
+
+  <article class="bg-white">
+    <!-- Hero image full-width -->
+    <div class="relative w-full overflow-hidden bg-surface-100" style="aspect-ratio: 1200/631;">
+      <img
+        src={data.heroImage}
+        alt={data.heroImageAlt}
+        width="1200"
+        height="631"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="container-narrow py-6 sm:py-8">
+      <Breadcrumb items={breadcrumbItems} />
+
+      <header class="mb-6 mt-4">
+        <div class="flex flex-wrap gap-2 mb-3 text-sm">
+          <a href={`/${animal.slug}/`} class="inline-flex items-center px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-medium hover:bg-brand-100 transition no-underline">
+            {animal.emoji} {animal.numePlural}
+          </a>
+          <a href={`/${animal.slug}/${data.subcategorie}/`} class="inline-flex items-center px-3 py-1 rounded-full bg-surface-100 text-surface-700 font-medium hover:bg-surface-200 transition no-underline capitalize">
+            {data.subcategorie}
+          </a>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-surface-900 leading-tight mb-4">
+          {data.title}
+        </h1>
+
+        <p class="text-lg text-surface-600 leading-relaxed mb-4">
+          {data.excerpt}
+        </p>
+
+        <div class="flex items-center gap-3 text-sm text-surface-500 border-y border-surface-200 py-3">
+          <time datetime={publishedIso}>Publicat: {publishedDisplay}</time>
+          {data.updatedAt && data.updatedAt > data.publishedAt && (
+            <>
+              <span>·</span>
+              <time datetime={modifiedIso}>Actualizat: {dateFormatter.format(data.updatedAt)}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none article-body">
+        <Content />
+      </div>
+
+      {related.length > 0 && (
+        <aside class="mt-12 pt-8 border-t border-surface-200">
+          <h2 class="text-xl font-heading font-bold text-surface-900 mb-4">
+            Citește și
+          </h2>
+          <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+            {related.map(q => (
+              <li>
+                <a
+                  href={`/${q.animalSlug}/${q.subcategorieSlug}/${q.slug}/`}
+                  class="block py-2 text-brand-700 hover:text-brand-900 hover:underline"
+                >
+                  {q.titlu}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .article-body :global(h2) {
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: rgb(15 23 42);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 640px) {
+    .article-body :global(h2) {
+      font-size: 1.75rem;
+    }
+  }
+  .article-body :global(p) {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgb(51 65 85);
+    margin-bottom: 1.125rem;
+  }
+  .article-body :global(strong) {
+    color: rgb(15 23 42);
+    font-weight: 600;
+  }
+  .article-body :global(a) {
+    color: rgb(13 148 136);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .article-body :global(a:hover) {
+    color: rgb(15 118 110);
+  }
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    margin: 1.125rem 0;
+    padding-left: 1.5rem;
+  }
+  .article-body :global(li) {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgb(51 65 85);
+    margin-bottom: 0.5rem;
+  }
+</style>

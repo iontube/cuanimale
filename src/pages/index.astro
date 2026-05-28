@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import SEOHead from '../components/SEOHead.astro';
 import AnimalCard from '../components/AnimalCard.astro';
@@ -9,6 +10,20 @@ import { getPopularIntrebari } from '../helpers/interlinking';
 const totalIntrebari = getAllIntrebari().length;
 const popularIntrebari = getPopularIntrebari(12);
 const pillarPages = animale.map(a => ({ name: a.numePlural, url: `/${a.slug}/` }));
+
+const latestArticole = (await getCollection('articole'))
+  .sort((a, b) => {
+    const diff = b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+    return diff !== 0 ? diff : a.id.localeCompare(b.id);
+  })
+  .slice(0, 6);
+
+const animalBySlug = Object.fromEntries(animale.map(a => [a.slug, a]));
+const dateFormatter = new Intl.DateTimeFormat('ro-RO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
 <Layout>
@@ -67,6 +82,69 @@ const pillarPages = animale.map(a => ({ name: a.numePlural, url: `/${a.slug}/` }
       </div>
     </div>
   </section>
+
+  <!-- Articole noi -->
+  {latestArticole.length > 0 && (
+    <section class="container-custom py-16 sm:py-20">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <h2 class="section-title">Articole noi</h2>
+          <p class="section-subtitle">Sfaturi practice, povești și ghiduri proaspete pentru iubitorii de animale</p>
+        </div>
+        <a href="/articole/" class="hidden sm:inline-flex items-center gap-2 text-brand-700 hover:text-brand-900 font-semibold no-underline transition-colors">
+          Toate articolele →
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {latestArticole.map(art => {
+          const animal = animalBySlug[art.data.animal];
+          return (
+            <a
+              href={`/articole/${art.id}/`}
+              class="group block bg-white rounded-xl overflow-hidden border border-surface-200 hover:border-brand-300 hover:shadow-lg transition-all no-underline"
+            >
+              <div class="relative aspect-[1200/631] overflow-hidden bg-surface-100">
+                <img
+                  src={art.data.heroImage}
+                  alt={art.data.heroImageAlt}
+                  width="1200"
+                  height="631"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                />
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2 text-xs">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 font-semibold">
+                    {animal?.emoji} {animal?.numePlural}
+                  </span>
+                  <span class="text-surface-400 capitalize">{art.data.subcategorie}</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-heading font-bold text-surface-900 leading-snug mb-2 group-hover:text-brand-700 transition-colors">
+                  {art.data.title}
+                </h3>
+                <p class="text-sm text-surface-600 leading-relaxed line-clamp-2 mb-3">
+                  {art.data.excerpt}
+                </p>
+                <time
+                  datetime={art.data.publishedAt.toISOString()}
+                  class="text-xs text-surface-500"
+                >
+                  {dateFormatter.format(art.data.publishedAt)}
+                </time>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+      <div class="mt-8 text-center sm:hidden">
+        <a href="/articole/" class="inline-flex items-center gap-2 text-brand-700 hover:text-brand-900 font-semibold no-underline">
+          Toate articolele →
+        </a>
+      </div>
+    </section>
+  )}
 
   <!-- Cele mai căutate întrebări -->
   <section class="container-custom py-16 sm:py-20">
