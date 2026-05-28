@@ -58,31 +58,10 @@ const dateFormatter = new Intl.DateTimeFormat('ro-RO', {
     </div>
   </section>
 
-  <!-- Intro text -->
-  <section class="container-custom py-12">
-    <div class="prose-custom max-w-3xl">
-      <p>Când ai un animal de companie, întrebările nu se termină niciodată. De ce latră câinele noaptea? Ce mănâncă un hamster? Cum îngrijești o pisică Persană? Pe cuanimale.ro găsești răspunsuri directe, scrise de specialiști, la cele mai căutate întrebări despre animale de companie din România.</p>
-      <p>Fiecare articol răspunde la o singură întrebare, cu informații practice pe care le poți aplica imediat. Nu teorie generală, ci sfaturi concrete adaptate speciei, rasei și vârstei animalului tău. {totalIntrebari.toLocaleString('ro-RO')} articole organizate pe 5 categorii și 25 de subcategorii.</p>
-    </div>
-  </section>
-
-  <!-- Categorii de animale -->
-  <section class="bg-surface-100 py-16 sm:py-20">
-    <div class="container-custom">
-      <div class="mb-10">
-        <h2 class="section-title">Alege tipul de animal</h2>
-        <p class="section-subtitle">Fiecare categorie acoperă comportament, hrană, sănătate, îngrijire și dresaj</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {animale.map(a => <AnimalCard animal={a} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Articole noi -->
+  <!-- Articole noi — direct sub hero -->
   {latestArticole.length > 0 && (
-    <section class="container-custom py-16 sm:py-20">
-      <div class="flex items-end justify-between mb-10">
+    <section class="container-custom py-12 sm:py-14">
+      <div class="flex items-end justify-between mb-8">
         <div>
           <h2 class="section-title">Articole noi</h2>
           <p class="section-subtitle">Sfaturi practice, povești și ghiduri proaspete pentru iubitorii de animale</p>
@@ -134,13 +113,34 @@ const dateFormatter = new Intl.DateTimeFormat('ro-RO', {
           );
         })}
       </div>
-      <div class="mt-8 text-center sm:hidden">
+      <div class="mt-6 text-center sm:hidden">
         <a href="/articole/" class="inline-flex items-center gap-2 text-brand-700 hover:text-brand-900 font-semibold no-underline">
           Toate articolele →
         </a>
       </div>
     </section>
   )}
+
+  <!-- Intro text -->
+  <section class="container-custom py-12">
+    <div class="prose-custom max-w-3xl">
+      <p>Când ai un animal de companie, întrebările nu se termină niciodată. De ce latră câinele noaptea? Ce mănâncă un hamster? Cum îngrijești o pisică Persană? Pe cuanimale.ro găsești răspunsuri directe, scrise de specialiști, la cele mai căutate întrebări despre animale de companie din România.</p>
+      <p>Fiecare articol răspunde la o singură întrebare, cu informații practice pe care le poți aplica imediat. Nu teorie generală, ci sfaturi concrete adaptate speciei, rasei și vârstei animalului tău. {totalIntrebari.toLocaleString('ro-RO')} articole organizate pe 5 categorii și 25 de subcategorii.</p>
+    </div>
+  </section>
+
+  <!-- Categorii de animale -->
+  <section class="bg-surface-100 py-16 sm:py-20">
+    <div class="container-custom">
+      <div class="mb-10">
+        <h2 class="section-title">Alege tipul de animal</h2>
+        <p class="section-subtitle">Fiecare categorie acoperă comportament, hrană, sănătate, îngrijire și dresaj</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {animale.map(a => <AnimalCard animal={a} />)}
+      </div>
+    </div>
+  </section>
 
   <!-- Cele mai căutate întrebări -->
   <section class="container-custom py-16 sm:py-20">
