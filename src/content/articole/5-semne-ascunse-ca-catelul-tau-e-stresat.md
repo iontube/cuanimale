@@ -2,7 +2,7 @@
 title: "5 semne ascunse că cățelul tău e stresat — și pe care le ignori zilnic"
 metaDescription: "Cățelul tău face zilnic gesturi pe care le ignori? Unele ascund stres și anxietate. Semnele surprinzătoare pe care puțini stăpâni le observă."
 excerpt: "Te întorci acasă, iar cățelul tău face exact gestul acela ciudat pe care îl vezi aproape în fiecare zi și pe care nu l-ai luat niciodată în serios."
-publishedAt: 2026-05-28
+publishedAt: 2026-05-28T19:35:00Z
 animal: caini
 subcategorie: comportament
 heroImage: "/uploads/articole/5-semne-ascunse-ca-catelul-tau-e-stresat.webp"

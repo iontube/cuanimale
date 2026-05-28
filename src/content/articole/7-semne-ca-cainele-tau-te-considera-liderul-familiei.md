@@ -2,7 +2,7 @@
 title: "7 semne că câinele tău te consideră liderul familiei"
 metaDescription: "Câinele tău te urmează peste tot sau se liniștește când te vede? Descoperă cele 7 semne care arată că te consideră liderul familiei."
 excerpt: "Ai observat vreodată că, într-o cameră plină de oameni, cățelul tău pare să te urmărească doar pe tine?"
-publishedAt: 2026-05-28
+publishedAt: 2026-05-28T19:20:00Z
 animal: caini
 subcategorie: comportament
 heroImage: "/uploads/articole/7-semne-ca-cainele-tau-te-considera-liderul-familiei.webp"

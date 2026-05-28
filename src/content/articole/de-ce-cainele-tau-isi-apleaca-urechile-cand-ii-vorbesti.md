@@ -2,7 +2,7 @@
 title: "De ce câinele tău își apleacă urechile când îi vorbești"
 metaDescription: "De ce își apleacă câinele urechile când îi vorbești? Descoperă ce spun acest gest, emoțiile ascunse și când poate indica o problemă."
 excerpt: "Ai observat vreodată cum cățelul tău își schimbă instant poziția urechilor atunci când îi spui ceva?"
-publishedAt: 2026-05-28
+publishedAt: 2026-05-28T18:50:00Z
 animal: caini
 subcategorie: comportament
 heroImage: "/uploads/articole/de-ce-cainele-tau-isi-apleaca-urechile-cand-ii-vorbesti.webp"

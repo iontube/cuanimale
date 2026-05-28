@@ -2,7 +2,7 @@
 title: "De ce câinii dorm cu capul pe picioarele tale"
 metaDescription: "De ce câinii dorm cu capul pe picioarele tale? Descoperă ce spune acest gest despre atașament, siguranță și starea emoțională a câinelui."
 excerpt: "Ai observat că, atunci când te așezi pe canapea sau te bagi în pat, cățelul tău vine și își lasă capul exact pe picioarele tale?"
-publishedAt: 2026-05-28
+publishedAt: 2026-05-28T18:30:00Z
 animal: caini
 subcategorie: comportament
 heroImage: "/uploads/articole/de-ce-cainii-dorm-cu-capul-pe-picioarele-tale.webp"

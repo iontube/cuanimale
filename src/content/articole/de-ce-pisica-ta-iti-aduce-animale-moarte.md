@@ -2,7 +2,7 @@
 title: "De ce pisica ta îți aduce animale moarte? Răspunsul e mai tulburător decât crezi"
 metaDescription: "Pisica ta îți aduce animale moarte la ușă? Gestul ascunde un adevăr fascinant și tulburător despre cum te vede cu adevărat."
 excerpt: "Te întorci acasă, deschizi ușa și găsești un șoarece mort pe preș."
-publishedAt: 2026-05-28
+publishedAt: 2026-05-28T19:45:00Z
 animal: pisici
 subcategorie: comportament
 heroImage: "/uploads/articole/de-ce-pisica-ta-iti-aduce-animale-moarte.webp"
