@@ -18,23 +18,36 @@
 }
 
 @theme {
-  /* --- Colors: Warm Teal + Amber (pet-friendly) --- */
-  --color-brand-50: #f0fdfa;
-  --color-brand-100: #ccfbf1;
-  --color-brand-200: #99f6e4;
-  --color-brand-300: #5eead4;
-  --color-brand-400: #2dd4bf;
-  --color-brand-500: #14b8a6;
-  --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
-  --color-brand-800: #115e59;
-  --color-brand-900: #134e4a;
-  --color-brand-950: #042f2e;
+  /* --- Colors: tuned to match logo palette (teal + golden yellow + warm red) --- */
+  /* brand = teal (logo #61bcaf base) */
+  --color-brand-50: #ecfdf7;
+  --color-brand-100: #d1faec;
+  --color-brand-200: #a4f3d9;
+  --color-brand-300: #6de4c1;
+  --color-brand-400: #3ecaa5;
+  --color-brand-500: #1cae8b;
+  --color-brand-600: #0f8d72;
+  --color-brand-700: #0d705c;
+  --color-brand-800: #0f594a;
+  --color-brand-900: #0e483d;
+  --color-brand-950: #042823;
 
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
+  /* accent = golden yellow (logo #feba0f base) */
+  --color-accent-50: #fffaeb;
+  --color-accent-100: #fff0c6;
+  --color-accent-200: #ffe089;
+  --color-accent-300: #ffca4b;
+  --color-accent-400: #ffb71f;
+  --color-accent-500: #feba0f;
+  --color-accent-600: #d97e06;
+  --color-accent-700: #b45a08;
+  --color-accent-800: #92450e;
+
+  /* warm = deep red (logo #930003) — for CTAs and emphasis */
+  --color-warm-400: #e53935;
+  --color-warm-500: #c82828;
+  --color-warm-600: #a31010;
+  --color-warm-700: #930003;
 
   --color-surface-50: #faf9f7;
   --color-surface-100: #f5f3ef;

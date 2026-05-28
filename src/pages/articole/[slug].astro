@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import SEOHead from '../../components/SEOHead.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { getAnimalBySlug, getIntrebariForSubcategorie } from '../../helpers/data';
+import { getAnimalBySlug } from '../../helpers/data';
 import { buildNewsArticleSchema, buildBreadcrumbSchema } from '../../helpers/structured-data';
 import type { BreadcrumbItem } from '../../helpers/types';
 
@@ -11,18 +11,32 @@ export async function getStaticPaths() {
   const articole = await getCollection('articole');
   return articole.map(art => ({
     params: { slug: art.id },
-    props: { article: art },
+    props: { article: art, all: articole },
   }));
 }
 
-const { article } = Astro.props;
+const { article, all } = Astro.props as { article: any; all: any[] };
 const { Content } = await render(article);
 const data = article.data;
 const animal = getAnimalBySlug(data.animal)!;
 const pageUrl = `/articole/${article.id}/`;
 
-// Related Q&A pages from same animal+subcategory for cross-linking
-const related = getIntrebariForSubcategorie(data.animal, data.subcategorie).slice(0, 6);
+// Related: other articles, ranked by same-animal first, then same-subcategorie, then any.
+// Excludes current article. Returns up to 4 most-recent.
+const otherArticles = (all as typeof all).filter(a => a.id !== article.id);
+const rankedRelated = otherArticles
+  .map(a => {
+    let score = 0;
+    if (a.data.animal === data.animal) score += 10;
+    if (a.data.subcategorie === data.subcategorie) score += 5;
+    return { article: a, score };
+  })
+  .sort((x, y) => {
+    if (y.score !== x.score) return y.score - x.score;
+    return y.article.data.publishedAt.getTime() - x.article.data.publishedAt.getTime();
+  })
+  .slice(0, 4)
+  .map(x => x.article);
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Articole', href: '/articole/' },
@@ -73,21 +87,26 @@ const modifiedIso = (data.updatedAt || data.publishedAt).toISOString();
   />
 
   <article class="bg-white">
-    <!-- Hero image full-width -->
-    <div class="relative w-full overflow-hidden bg-surface-100" style="aspect-ratio: 1200/631;">
-      <img
-        src={data.heroImage}
-        alt={data.heroImageAlt}
-        width="1200"
-        height="631"
-        fetchpriority="high"
-        decoding="async"
-        class="w-full h-full object-cover"
-      />
+    <div class="container-narrow pt-6 sm:pt-8 pb-2">
+      <Breadcrumb items={breadcrumbItems} />
     </div>
 
-    <div class="container-narrow py-6 sm:py-8">
-      <Breadcrumb items={breadcrumbItems} />
+    <!-- Hero image — constrained to article container width, NOT full-bleed -->
+    <div class="container-narrow">
+      <div class="relative w-full overflow-hidden rounded-xl bg-surface-100" style="aspect-ratio: 1200/631;">
+        <img
+          src={data.heroImage}
+          alt={data.heroImageAlt}
+          width="1200"
+          height="631"
+          fetchpriority="high"
+          decoding="async"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <div class="container-narrow pt-6 pb-8">
 
       <header class="mb-6 mt-4">
         <div class="flex flex-wrap gap-2 mb-3 text-sm">
@@ -122,23 +141,45 @@ const modifiedIso = (data.updatedAt || data.publishedAt).toISOString();
         <Content />
       </div>
 
-      {related.length > 0 && (
+      {rankedRelated.length > 0 && (
         <aside class="mt-12 pt-8 border-t border-surface-200">
-          <h2 class="text-xl font-heading font-bold text-surface-900 mb-4">
-            Citește și
+          <h2 class="text-2xl font-heading font-bold text-surface-900 mb-6">
+            Alte articole
           </h2>
-          <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2">
-            {related.map(q => (
-              <li>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            {rankedRelated.map(rel => {
+              const relAnimal = getAnimalBySlug(rel.data.animal);
+              return (
                 <a
-                  href={`/${q.animalSlug}/${q.subcategorieSlug}/${q.slug}/`}
-                  class="block py-2 text-brand-700 hover:text-brand-900 hover:underline"
+                  href={`/articole/${rel.id}/`}
+                  class="group block bg-white rounded-lg overflow-hidden border border-surface-200 hover:border-brand-300 hover:shadow-md transition-all no-underline"
                 >
-                  {q.titlu}
+                  <div class="relative aspect-[1200/631] overflow-hidden bg-surface-100">
+                    <img
+                      src={rel.data.heroImage}
+                      alt={rel.data.heroImageAlt}
+                      width="1200"
+                      height="631"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <div class="flex items-center gap-2 mb-1.5 text-xs">
+                      <span class="text-brand-700 font-semibold">
+                        {relAnimal?.emoji} {relAnimal?.numePlural}
+                      </span>
+                      <span class="text-surface-400 capitalize">{rel.data.subcategorie}</span>
+                    </div>
+                    <h3 class="text-base font-heading font-bold text-surface-900 leading-snug group-hover:text-brand-700 transition-colors">
+                      {rel.data.title}
+                    </h3>
+                  </div>
                 </a>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </aside>
       )}
     </div>

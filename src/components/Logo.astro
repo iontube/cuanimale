@@ -1,8 +1,12 @@
 ---
 interface Props {
   variant?: 'light' | 'dark';
+  size?: 'header' | 'footer';
 }
-const { variant = 'light' } = Astro.props;
+const { variant = 'light', size = 'header' } = Astro.props;
+const sizeClass = size === 'footer'
+  ? 'h-24 sm:h-32 w-auto'
+  : 'h-20 sm:h-24 w-auto';
 ---
 
 <picture>
@@ -10,11 +14,11 @@ const { variant = 'light' } = Astro.props;
   <img
     src="/logo.png"
     alt="cuanimale.ro - Animale de companie"
-    class="h-12 w-auto"
+    class={sizeClass}
     width="600"
     height="400"
-    loading="eager"
-    fetchpriority="high"
+    loading={size === 'header' ? 'eager' : 'lazy'}
+    fetchpriority={size === 'header' ? 'high' : 'auto'}
     data-variant={variant}
   />
 </picture>
